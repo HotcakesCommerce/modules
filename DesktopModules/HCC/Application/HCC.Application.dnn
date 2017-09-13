@@ -1,0 +1,117 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages><package name="HCC.Application" type="Module" version="3.0.0">
+  <friendlyName>Hotcakes CMS</friendlyName>
+  <description>Hotcakes CMS</description>
+  <iconFile>DesktopModules/HCC/Application/hcc-logo.png</iconFile>
+  <owner>
+    <name>Hotcakes Commerce</name>
+    <organization>Hotcakes Commerce, LLC</organization>
+    <url>http://hotcakes.org</url>
+    <email>support@HotcakesCommerce.com</email>
+  </owner>
+  <license>Distributed under the MIT License
+
+Copyright (c) 2016 Hotcakes Commerce, LLC
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
+and associated documentation files (the "Software"), to deal in the Software without restriction, 
+including without limitation the rights to use, copy, modify, merge, publish, distribute, 
+sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is 
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or 
+substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.
+</license>
+  <releaseNotes />
+  <components>
+    <component type="Script">
+      <scripts>
+        <basePath>DesktopModules\HCC\Application</basePath>
+        <script type="Install">
+          <path>Scripts</path>
+          <name>03.00.00.sql</name>
+          <version>03.00.00</version>
+        </script>
+      </scripts>
+    </component>
+    <component type="Config">
+      <config>
+        <configFile>web.config</configFile>
+        <install>
+          <configuration>
+            <nodes>
+              <node path="/configuration/appSettings" action="update" key="name" collision="overwrite">
+                <add key="UpdateServiceUrl" value="https://hotcakes.org/DesktopModules/HCC/UpdateService/" />
+                <add key="UpdateServiceRedirect" value="https://hotcakes.org/DesktopModules/HCC/UpdateService/redirect.aspx" />
+              </node>
+              <node path="/configuration/system.webServer/modules" action="update" key="name" collision="overwrite">
+                <add name="Context" type="HCC.Application.ContextModule" preCondition="managedHandler" />
+              </node>
+            </nodes>
+          </configuration>
+        </install>
+        <uninstall>
+          <configuration>
+            <nodes>
+            </nodes>
+          </configuration>
+        </uninstall>
+      </config>
+    </component>
+    <component type="Module">
+      <desktopModule>
+        <moduleName>HCC.Application</moduleName>
+        <foldername>HCC/Application</foldername>
+        <businessControllerClass />
+        <supportedFeatures />
+        <moduleDefinitions>
+          <moduleDefinition>
+            <friendlyName>Hotcakes CMS</friendlyName>
+            <definitionName>HCC.Application</definitionName>
+            <defaultCacheTime>0</defaultCacheTime>
+            <moduleControls>
+              <moduleControl>
+                <controlKey />
+                <controlSrc>desktopmodules/hcc/application/View.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+            </moduleControls>
+          </moduleDefinition>
+        </moduleDefinitions>
+      </desktopModule>
+    </component>
+    <component type="Assembly">
+      <assemblies>
+        <basePath>bin</basePath>
+        <assembly>
+          <name>HCC.Application.dll</name>
+        </assembly>
+      </assemblies>
+    </component>
+    <component type="File">
+      <files>
+        <basePath>DesktopModules\HCC\Application</basePath>
+        <file>
+          <name>View.ascx</name>
+        </file>
+        <file>
+          <name>hcc-logo.png</name>
+        </file>
+      </files>
+    </component>
+  </components>
+</package></packages>
+</dotnetnuke>
