@@ -11,6 +11,9 @@
         <email>support@upendoventures.com</email>
       </owner>
       <azureCompatible>true</azureCompatible>
+      <dependencies>
+        <dependency type="CoreVersion">09.02.02</dependency>
+      </dependencies>
       <license>
         Distributed under the MIT License
 
@@ -34,7 +37,9 @@
         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
         THE SOFTWARE.
       </license>
-      <releaseNotes />
+      <releaseNotes>
+        Updating HTML modules on clean install for CMS &amp; added Uninstall logic.
+      </releaseNotes>
       <components>
         <component type="Script">
           <scripts>
@@ -123,8 +128,8 @@
         </component>
         <component type="Assembly">
           <assemblies>
-            <basePath>bin</basePath>
             <assembly>
+              <path>bin</path>
               <name>HCC.Application.dll</name>
               <version>03.03.00</version>
             </assembly>
